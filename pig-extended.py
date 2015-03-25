@@ -49,8 +49,14 @@ class Player():
 
 class ComputerPlayer(Player):
 	def decide(self):
-		#Override
-		if(self.turn_score < 10):
+		limit1 = 25
+		limit2 = 100 - self.score
+		if(limit1 < limit2):
+			holdlimit = limit1
+		else:
+			holdlimit = limit2
+			
+		if(self.turn_score < holdlimit):
 			print "Computer Rolling"
 			self.hold = False
 			self.roll = True			
